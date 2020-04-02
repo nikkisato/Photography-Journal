@@ -31,8 +31,7 @@ const Content = styled.div`
   align-items: center;
   width: 100%;
   max-width: 60rem;
-  flex-direction: column;
-  margin-top: 2rem;
+  flex-direction: row;
 `;
 
 const Todos = ({ todos, requested, userId }) => {

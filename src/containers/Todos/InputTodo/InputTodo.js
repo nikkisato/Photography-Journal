@@ -57,11 +57,13 @@ const InputTodo = ({
         </Heading>
         <Formik
           initialValues={{
-            todo: editTodo ? editTodo.todo : ''
+            todo: editTodo ? editTodo.todo : '',
+            website: editTodo ? editTodo.website : '',
+            notes: editTodo ? editTodo.notes : '',
+            location: editTodo ? editTodo.location : '',
           }}
           validationSchema={TodoSchema}
           onSubmit={async (values, { setSubmitting, resetForm }) => {
-            // send our todo
             const res = editTodo
               ? await editTodoAction(editTodo.id, values)
               : await addTodo(values);
@@ -78,6 +80,24 @@ const InputTodo = ({
                 type='text'
                 name='todo'
                 placeholder='Write your todo...'
+                component={Input}
+              />
+              <Field
+                type='url'
+                name='website'
+                placeholder='Image URL'
+                component={Input}
+              />
+              <Field
+                type='text'
+                name='location'
+                placeholder='Location'
+                component={Input}
+              />
+              <Field
+                type='text'
+                name='notes'
+                placeholder='Notes... example:ISO'
                 component={Input}
               />
               <ButtonsWrapper>

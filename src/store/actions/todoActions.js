@@ -1,6 +1,5 @@
 import * as actions from './actionTypes';
 
-//Add a todo
 // Add a todo
 export const addTodo = data => async (
   dispatch,
@@ -17,7 +16,10 @@ export const addTodo = data => async (
       .get();
     const newTodo = {
       id: new Date().valueOf(),
-      todo: data.todo
+      todo: data.todo,
+      website: data.website,
+      location: data.location,
+      notes: data.notes
     };
     if (!res.data()) {
       firestore
@@ -65,7 +67,6 @@ export const deleteTodo = id => async (
         todos: newTodos
       });
     dispatch({ type: actions.DELETE_TODO_SUCCESS });
-
   } catch (err) {
     dispatch({ type: actions.DELETE_TODO_FAIL, payload: err.message });
   }
@@ -83,14 +84,17 @@ export const editTodo = (id, data) => async (
 
   try {
     const res = await firestore
-
       .collection('todos')
       .doc(userId)
       .get();
-    const todos = res.data().todos;
 
+    const todos = res.data().todos;
     const index = todos.findIndex(todo => todo.id === id);
     todos[index].todo = data.todo;
+
+    todos[index].website = data.website;
+    todos[index].location = data.location;
+    todos[index].notes = data.notes;
 
     await firestore
       .collection('todos')

@@ -29,6 +29,11 @@ const MessageWrapper = styled.div`
   padding: 0 3rem;
 `;
 
+const IMG = styled.img`
+  width: 50%;
+  height: 50%;
+`;
+
 const DeleteTodo = ({ show, close, todo, deleteTodo, error, loading }) => {
   return (
     <Modal opened={show} close={close}>
@@ -38,7 +43,15 @@ const DeleteTodo = ({ show, close, todo, deleteTodo, error, loading }) => {
       <Heading bold size='h4' color='white'>
         Are you sure you want to delete this todo?
       </Heading>
-      <TodoWrapper>{todo.todo}</TodoWrapper>
+      <TodoWrapper>
+        {todo.todo}
+        <br></br>
+        <IMG alt={todo.website} src={todo.website}></IMG>
+        <br></br>
+        Location: {todo.location}
+        <br></br>
+        Notes: {todo.notes}
+      </TodoWrapper>
       <ButtonsWrapper>
         <Button
           contain

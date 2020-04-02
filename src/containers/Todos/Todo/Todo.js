@@ -16,6 +16,12 @@ const Wrapper = styled.div`
   font-weight: 700;
   text-align: center;
   color: var(--color-white);
+  z-index: 1;
+`;
+
+const IMG = styled.img`
+  width: 100%;
+  height: 100%;
 `;
 
 const Controls = styled.div`
@@ -40,7 +46,7 @@ const deleteStyles = {
   cursor: 'pointer'
 };
 
-const Todo = ({ todo }) => {
+const Todo = ({ todo, website, notes }) => {
   const [isDeleting, setisDeleting] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   console.log(isDeleting);
@@ -48,6 +54,12 @@ const Todo = ({ todo }) => {
   return (
     <Wrapper>
       {todo.todo}
+      <br></br>
+      <IMG alt={todo.website} src={todo.website}></IMG>
+      <br></br>
+      Location: {todo.location}
+      <br></br>
+      Notes: {todo.notes}
       <Controls>
         <i
           className='fas fa-edit'

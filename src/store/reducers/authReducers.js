@@ -7,7 +7,6 @@ const initialState = {
     error: null,
     loading: false
   },
-
   recoverPassword: {
     error: null,
     loading: false
@@ -89,26 +88,26 @@ const recoveryFail = (state, payload) => {
   };
 };
 
-const profileEditStart = state => {
-  return {
-    ...state,
-    profileEdit: { ...state.profileEdit, loading: true }
-  };
-};
+// const profileEditStart = state => {
+//   return {
+//     ...state,
+//     profileEdit: { ...state.profileEdit, loading: true }
+//   };
+// };
 
-const profileEditFail = (state, payload) => {
-  return {
-    ...state,
-    profileEdit: { ...state.profileEdit, loading: false, error: payload }
-  };
-};
+// const profileEditFail = (state, payload) => {
+//   return {
+//     ...state,
+//     profileEdit: { ...state.profileEdit, loading: false, error: payload }
+//   };
+// };
 
-const profileEditSuccess = state => {
-  return {
-    ...state,
-    profileEdit: { ...state.profileEdit, loading: false, error: false }
-  };
-};
+// const profileEditSuccess = state => {
+//   return {
+//     ...state,
+//     profileEdit: { ...state.profileEdit, loading: false, error: false }
+//   };
+// };
 
 const deleteUserStart = state => {
   return { ...state, deleteUser: { ...state.deleteUser, loading: true } };
@@ -183,14 +182,14 @@ export default (state = initialState, { type, payload }) => {
     case actions.RECOVERY_FAIL:
       return recoveryFail(state, payload);
 
-    case actions.PROFILE_EDIT_START:
-      return profileEditStart(state);
+    // case actions.PROFILE_EDIT_START:
+    //   return profileEditStart(state);
 
-    case actions.PROFILE_EDIT_SUCCESS:
-      return profileEditSuccess(state);
+    // case actions.PROFILE_EDIT_SUCCESS:
+    //   return profileEditSuccess(state);
 
-    case actions.PROFILE_EDIT_FAIL:
-      return profileEditFail(state, payload);
+    // case actions.PROFILE_EDIT_FAIL:
+    //   return profileEditFail(state, payload);
 
     case actions.DELETE_USER_START:
       return deleteUserStart(state);
