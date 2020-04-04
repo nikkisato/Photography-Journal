@@ -6,6 +6,7 @@ import NavItem from './NavItem/NavItem';
 const Nav = styled.nav`
   display: flex;
   margin-top: ${props => (props.mobile ? '-6rem' : null)};
+  font-size: 1rem;
 `;
 
 const Ul = styled.ul`

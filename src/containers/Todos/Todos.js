@@ -17,6 +17,7 @@ const Wrapper = styled.div`
   height: 100%;
   min-height: calc(100vh - 6rem);
   background-color: var(--color-mainLight);
+  display: flex;
 `;
 
 const InnerWrapper = styled.div`
@@ -27,11 +28,23 @@ const InnerWrapper = styled.div`
 `;
 
 const Content = styled.div`
-  display: flex;
   align-items: center;
-  width: 100%;
-  max-width: 60rem;
-  flex-direction: row;
+  max-width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  padding-right: 40px;
+  object-fit: contain;
+`;
+
+const ContentWrapper = styled.div`
+  align-items: center;
+  object-fit: contain;
+  object-fit: cover;
+  
 `;
 
 const Todos = ({ todos, requested, userId }) => {
@@ -86,9 +99,8 @@ const Todos = ({ todos, requested, userId }) => {
             Add Todo
           </Button>
           <InputTodo opened={isAdding} close={() => setisAdding(false)} />
-
-          {content}
         </InnerWrapper>
+        <ContentWrapper>{content}</ContentWrapper>
       </Container>
     </Wrapper>
   );

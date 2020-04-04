@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 const Li = styled.li`
   display: flex;
-  height: 100%;
+  /* height: 100%; */
 `;
 
 const StyledNavLink = styled(NavLink)`

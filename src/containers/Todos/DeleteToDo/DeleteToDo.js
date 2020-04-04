@@ -51,6 +51,8 @@ const DeleteTodo = ({ show, close, todo, deleteTodo, error, loading }) => {
         Location: {todo.location}
         <br></br>
         Notes: {todo.notes}
+        <br></br>
+        Source: {todo.source}
       </TodoWrapper>
       <ButtonsWrapper>
         <Button

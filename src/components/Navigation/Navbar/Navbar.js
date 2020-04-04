@@ -7,7 +7,7 @@ import { Container } from '../../../hoc/layouts/elements';
 
 const FixedWrapper = styled.div`
   position: fixed;
-
+  z-index: 10;
   background-color: var(--color-mainDark);
   padding: 0rem 2rem;
   top: 0;
@@ -24,7 +24,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-const Navbar = ({loggedIn}) => {
+const Navbar = ({ loggedIn }) => {
   return (
     <FixedWrapper>
       <Container>

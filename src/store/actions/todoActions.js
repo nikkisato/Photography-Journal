@@ -19,7 +19,8 @@ export const addTodo = data => async (
       todo: data.todo,
       website: data.website,
       location: data.location,
-      notes: data.notes
+      notes: data.notes,
+      source: data.source
     };
     if (!res.data()) {
       firestore
@@ -95,6 +96,7 @@ export const editTodo = (id, data) => async (
     todos[index].website = data.website;
     todos[index].location = data.location;
     todos[index].notes = data.notes;
+    todos[index].source = data.source;
 
     await firestore
       .collection('todos')

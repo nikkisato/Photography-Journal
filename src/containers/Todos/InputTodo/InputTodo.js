@@ -61,6 +61,7 @@ const InputTodo = ({
             website: editTodo ? editTodo.website : '',
             notes: editTodo ? editTodo.notes : '',
             location: editTodo ? editTodo.location : '',
+            source: editTodo ? editTodo.source : '',
           }}
           validationSchema={TodoSchema}
           onSubmit={async (values, { setSubmitting, resetForm }) => {
@@ -98,6 +99,13 @@ const InputTodo = ({
                 type='text'
                 name='notes'
                 placeholder='Notes... example:ISO'
+                component={Input}
+              />
+
+<Field
+                type='url'
+                name='source'
+                placeholder='Source'
                 component={Input}
               />
               <ButtonsWrapper>

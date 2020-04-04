@@ -17,6 +17,10 @@ const Wrapper = styled.div`
   text-align: center;
   color: var(--color-white);
   z-index: 1;
+  min-width: 15rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  min-height: 40rem;
 `;
 
 const IMG = styled.img`
@@ -34,6 +38,12 @@ const Controls = styled.div`
   justify-content: center;
 `;
 
+const P = styled.p`
+  font-weight: bold;
+  text-transform: uppercase;
+  color: black;
+`;
+
 const editStyles = {
   color: 'var(--color-main)',
   margin: '0 .5rem',
@@ -46,7 +56,7 @@ const deleteStyles = {
   cursor: 'pointer'
 };
 
-const Todo = ({ todo, website, notes }) => {
+const Todo = ({ todo }) => {
   const [isDeleting, setisDeleting] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   console.log(isDeleting);
@@ -54,12 +64,14 @@ const Todo = ({ todo, website, notes }) => {
   return (
     <Wrapper>
       {todo.todo}
-      <br></br>
       <IMG alt={todo.website} src={todo.website}></IMG>
+      <P>Location:</P>
+      {todo.location}
       <br></br>
-      Location: {todo.location}
+      <P>Notes:</P>
+      {todo.notes}
       <br></br>
-      Notes: {todo.notes}
+      <a href={todo.source}>Source</a>
       <Controls>
         <i
           className='fas fa-edit'
