@@ -58,6 +58,15 @@ const InnerWrapper = styled.div`
   padding: 5rem 4rem;
 `;
 
+const InfoWrapper = styled.div`
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem 4rem;
+  width: 50%;
+`;
+
 const StyledButton = styled.button`
   width: auto;
   outline: none;
@@ -87,10 +96,10 @@ const Home = () => {
       <Container>
         <InnerWrapper>
           <Heading noMargin size='h1' color='white'>
-            Always want to keep track of where you want to visit in the world??
+            Places you want to visit
           </Heading>
           <Heading bold size='h4' color='white'>
-            Places you want to visit
+            Keep track of where you want to visit/take photos around the world
           </Heading>
 
           <ImageWrapper>
@@ -100,12 +109,30 @@ const Home = () => {
             <IMG alt='screenshot' src={Germany}></IMG>
           </ImageWrapper>
 
-          <Heading size='h4' color='white'>
-            As an aspiring photographer, I always have love seeing travel photos
-            from around the world but often lose track of them. Created this
-            website to keep track of my photos that I would love to take in the
-            future!
-          </Heading>
+          <InfoWrapper>
+            <Heading size='h4' color='white'>
+              As an aspiring photographer, I always have love seeing travel
+              photos from around the world but often lose track of them. Created
+              this website to keep track of my photos that I would love to take
+              in the future! How to use this App, when adding a journey it will
+              ask for a couple of information to help keep track. I'm mainly
+              using this to keep tracks of all the photos I would love to take
+              around the world.
+            </Heading>
+            <Heading size='h4' color='white'>
+              <br></br>
+              Title: A title
+              <br></br>
+              Image: A image url
+              <br></br>
+              Location: where was the image taken?
+              <br></br>
+              Notes: Any notes that can help such as ISO, shutter speed,
+              settings
+              <br></br>
+              Source: post the link so you can be redirected for future.
+            </Heading>
+          </InfoWrapper>
           <Heading size='h4' color='white'>
             Ready to start your Photography Journal?
           </Heading>
