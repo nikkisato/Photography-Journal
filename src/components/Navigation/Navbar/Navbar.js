@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import NavItems from '../NavItems/NavItems';
-
+import { Link } from 'react-router-dom';
 import Logo from '../../Logo/Logo';
 import { Container } from '../../../hoc/layouts/elements';
 
@@ -15,7 +15,7 @@ const FixedWrapper = styled.div`
   width: 100%;
   height: 6rem;
 
-  @media ${props => props.theme.mediaQueries.smallest} {
+  @media ${(props) => props.theme.mediaQueries.smallest} {
     display: none;
   }
 `;
@@ -29,7 +29,9 @@ const Navbar = ({ loggedIn }) => {
     <FixedWrapper>
       <Container>
         <Wrapper>
-          <Logo />
+          <Link to='/'>
+            <Logo />
+          </Link>
           <NavItems loggedIn={loggedIn} />
         </Wrapper>
       </Container>

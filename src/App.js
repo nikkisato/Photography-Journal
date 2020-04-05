@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Layout from './hoc/layouts/Layout';
-// import Home from './containers/Home/Home';
+import Home from './containers/Home/Home';
 import Todos from './containers/Todos/Todos';
 import Login from './containers/Auth/Login/Login';
 import SignUp from './containers/Auth/SignUp/SignUp';
@@ -36,11 +36,12 @@ const App = ({ loggedIn, emailVerified }) => {
   } else {
     routes = (
       <Switch>
+        <Route exact path='/' component={Home} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/signup' component={SignUp} />
         <Route exact path='/recover' component={RecoverPassword} />
 
-        <Redirect to='/login' />
+        <Redirect to='/' />
       </Switch>
     );
   }
@@ -49,7 +50,7 @@ const App = ({ loggedIn, emailVerified }) => {
 
 const mapStateToProps = ({ firebase }) => ({
   loggedIn: firebase.auth.uid,
-  emailVerified: firebase.auth.emailVerified
+  emailVerified: firebase.auth.emailVerified,
 });
 
 export default connect(mapStateToProps)(App);

@@ -38,13 +38,29 @@ const Content = styled.div`
   grid-row-gap: 20px;
   padding-right: 40px;
   object-fit: contain;
+
+  @media only screen and (max-width: 600px) {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+  @media only screen and (min-width: 601px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  @media only screen and (min-width: 1000px) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
 `;
 
 const ContentWrapper = styled.div`
   align-items: center;
   object-fit: contain;
   object-fit: cover;
-  
 `;
 
 const Todos = ({ todos, requested, userId }) => {
@@ -60,7 +76,7 @@ const Todos = ({ todos, requested, userId }) => {
     content = (
       <Content>
         <Heading color='white' size='h2'>
-          You have no todos!
+          You have no Journeys!
         </Heading>
       </Content>
     );
@@ -68,7 +84,7 @@ const Todos = ({ todos, requested, userId }) => {
     content = (
       <Content>
         <Heading color='white' size='h2'>
-          You have no todos!
+          You have no Journey!
         </Heading>
       </Content>
     );
@@ -78,7 +94,7 @@ const Todos = ({ todos, requested, userId }) => {
         {todos[userId].todos
           .slice(0)
           .reverse()
-          .map(todo => (
+          .map((todo) => (
             <Todo key={todo.id} todo={todo} />
           ))}
       </Content>
@@ -90,13 +106,13 @@ const Todos = ({ todos, requested, userId }) => {
       <Container>
         <InnerWrapper>
           <Heading noMargin size='h1' color='white'>
-            Your Todos
+            Your Travel Journal
           </Heading>
           <Heading bold size='h4' color='white'>
-            All you have to do for now...
+            Places you want to visit
           </Heading>
           <Button color='main' contain onClick={() => setisAdding(true)}>
-            Add Todo
+            Add Journey
           </Button>
           <InputTodo opened={isAdding} close={() => setisAdding(false)} />
         </InnerWrapper>
@@ -110,12 +126,12 @@ const mapStateToProps = ({ firebase, firestore }) => ({
   userId: firebase.auth.uid,
   todos: firestore.data.todos,
   requesting: firestore.status.requesting,
-  requested: firestore.status.requested
+  requested: firestore.status.requested,
 });
 
 const mapDispatchToProps = {};
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  firestoreConnect(props => [`todos/${props.userId}`])
+  firestoreConnect((props) => [`todos/${props.userId}`])
 )(Todos);

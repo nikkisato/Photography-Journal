@@ -47,13 +47,13 @@ const P = styled.p`
 const editStyles = {
   color: 'var(--color-main)',
   margin: '0 .5rem',
-  cursor: 'pointer'
+  cursor: 'pointer',
 };
 
 const deleteStyles = {
   color: 'var(--color-errorRed)',
   margin: '0 .5rem',
-  cursor: 'pointer'
+  cursor: 'pointer',
 };
 
 const Todo = ({ todo }) => {
@@ -64,7 +64,9 @@ const Todo = ({ todo }) => {
   return (
     <Wrapper>
       {todo.todo}
-      <IMG alt={todo.website} src={todo.website}></IMG>
+      <a href={todo.website} target='_blank' rel="noopener noreferrer">
+        <IMG alt={todo.website} src={todo.website}></IMG>
+      </a>
       <P>Location:</P>
       {todo.location}
       <br></br>

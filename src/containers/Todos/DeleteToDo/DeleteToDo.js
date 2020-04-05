@@ -38,10 +38,10 @@ const DeleteTodo = ({ show, close, todo, deleteTodo, error, loading }) => {
   return (
     <Modal opened={show} close={close}>
       <Heading noMargin size='h1' color='white'>
-        Deleting todo
+        Deleting Journey
       </Heading>
       <Heading bold size='h4' color='white'>
-        Are you sure you want to delete this todo?
+        Are you sure you want to delete this journey?
       </Heading>
       <TodoWrapper>
         {todo.todo}

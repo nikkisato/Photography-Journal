@@ -48,12 +48,12 @@ const InputTodo = ({
     <>
       <Modal opened={opened} close={close}>
         <Heading noMargin size='h1' color='white'>
-          {editTodo ? 'Edit your todo' : 'Add your new todo'}
+          {editTodo ? 'Edit your Journey' : 'Add your new Journey'}
         </Heading>
         <Heading bold size='h4' color='white'>
           {editTodo
-            ? 'Edit your todo and tap edit'
-            : 'Type your todo and press add'}
+            ? 'Edit your Journey and tap edit'
+            : 'Type your Journey and press add'}
         </Heading>
         <Formik
           initialValues={{
@@ -116,7 +116,7 @@ const InputTodo = ({
                   disabled={!isValid || isSubmitting}
                   loading={loading ? loadingText : null}
                 >
-                  {editTodo ? 'Edit todo' : 'Add todo'}
+                  {editTodo ? 'Edit Journey' : 'Add Journey'}
                 </Button>
                 <Button
                   type='button'
