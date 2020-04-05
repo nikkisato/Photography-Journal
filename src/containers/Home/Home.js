@@ -117,20 +117,22 @@ const Home = () => {
               in the future! How to use this App, when adding a journey it will
               ask for a couple of information to help keep track. I'm mainly
               using this to keep tracks of all the photos I would love to take
-              around the world. On this app you can Add Journeys, Edit Journeys, and Delete Journeys.
+              around the world. On this app you can Add Journeys, Edit Journeys,
+              and Delete Journeys.
             </Heading>
             <Heading size='h4' color='white'>
               <br></br>
-              Title: A title
+              <b> Title:</b> A title
               <br></br>
-              Image: A image url
+              <b> Image:</b>A image url
               <br></br>
-              Location: where was the image taken?
+              <b> Location:</b> where was the image taken?
               <br></br>
-              Notes: Any notes that can help such as ISO, shutter speed,
-              settings
+              <b> Notes:</b>
+              Any notes that can help such as ISO, shutter speed, settings
               <br></br>
-              Source: post the link so you can be redirected for future.
+              <b> Source:</b>
+              post the link so you can be redirected for future.
             </Heading>
           </InfoWrapper>
           <Heading size='h4' color='white'>
