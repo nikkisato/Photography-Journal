@@ -117,7 +117,7 @@ const Home = () => {
               in the future! How to use this App, when adding a journey it will
               ask for a couple of information to help keep track. I'm mainly
               using this to keep tracks of all the photos I would love to take
-              around the world.
+              around the world. On this app you can Add Journeys, Edit Journeys, and Delete Journeys.
             </Heading>
             <Heading size='h4' color='white'>
               <br></br>
@@ -136,7 +136,6 @@ const Home = () => {
           <Heading size='h4' color='white'>
             Ready to start your Photography Journal?
           </Heading>
-
           <Link to='/login'>
             <StyledButton>Go to Login </StyledButton>
           </Link>
