@@ -8,10 +8,9 @@ import IconButton from '@material-ui/core/IconButton';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Lottie from 'react-lottie';
 import Hidden from '@material-ui/core/Hidden';
-
 import integrationAnimation from '../src/animations/integrationAnimation/data';
-
 import CallToAction from '../src/UI/CallToAction';
+
 const useStyles = makeStyles(theme => ({
   heading: {
     maxWidth: '40em',
@@ -94,8 +93,16 @@ export default function MobileApps(props) {
         </Hidden>
         <Grid item container direction='column' className={classes.heading}>
           <Grid item>
-            <Typography variant='h2' align={matchesMD ? 'center' : undefined}>
-              iOS/Android App Development{' '}
+            <Typography
+              variant='h2'
+              align={matchesMD ? 'center' : undefined}
+              style={{
+                lineHeight: matchesXS ? 1.1 : null,
+                marginBottom: matchesXS ? '0.5' : null,
+                fontSize: '2.25em',
+              }}
+            >
+              iOS/Android App Development
             </Typography>
           </Grid>
           <Grid item>

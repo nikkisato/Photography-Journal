@@ -24,7 +24,11 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('sm')]: {
       padding: 25,
     },
+    [theme.breakpoints.down('xs')]: {
+      padding: 5,
+    },
   },
+
   learnButton: {
     ...theme.typography.learnButton,
     fontSize: '0.7rem',
@@ -40,6 +44,7 @@ export default function Services(props) {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
+  const matchesXS = useMediaQuery(theme.breakpoints.down('xs'));
 
   return (
     <Grid container direction='column'>
@@ -147,7 +152,7 @@ export default function Services(props) {
               Save Energy. Save Time. Save Money
             </Typography>
             <Typography variant='subtitle1'>
-              Complete digital solutions, from investigation to{' '}
+              Complete digital solutions, from investigation to
               <span className={classes.specialText}>celebration.</span>
             </Typography>
             <Button
@@ -199,7 +204,8 @@ export default function Services(props) {
               Reach More. Discover More. Sell More.
             </Typography>
             <Typography variant='subtitle1'>
-              Optimized for Search Engines, built for speed.
+              Optimized for Search Engines, {matchesXS && <br />}built for
+              speed.
             </Typography>
             <Button
               href='/websites'

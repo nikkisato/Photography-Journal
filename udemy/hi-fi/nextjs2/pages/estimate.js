@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 //import ReactGA from 'react-ga';
 import Head from 'next/head';
 import axios from 'axios';
@@ -378,6 +378,7 @@ export default function Estimate() {
   const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
   const matchesXS = useMediaQuery(theme.breakpoints.down('xs'));
 
+  const myRef = useRef(null);
   const [questions, setQuestions] = useState(defaultQuestions);
   const [dialogOpen, setDialogOpen] = useState(false);
 
@@ -414,6 +415,9 @@ export default function Estimate() {
   };
 
   const nextQuestion = () => {
+    if (matchesSM) {
+      window.scrollTo(0, myRef.current.offsetTop + 75);
+    }
     const newQuestions = cloneDeep(questions);
 
     const currentlyActive = newQuestions.filter(question => question.active);
@@ -426,6 +430,9 @@ export default function Estimate() {
     setQuestions(newQuestions);
   };
   const previousQuestion = () => {
+    if (matchesSM) {
+      window.scrollTo(0, myRef.current.offsetTop + 75);
+    }
     const newQuestions = cloneDeep(questions);
 
     const currentlyActive = newQuestions.filter(question => question.active);
@@ -481,6 +488,9 @@ export default function Estimate() {
 
     switch (newSelected.title) {
       case 'Custom Software Development':
+        if (matchesSM) {
+          window.scrollTo(0, myRef.current.offsetTop + 75);
+        }
         setQuestions(softwareQuestions);
         setService(newSelected.title);
         setPlatforms([]);
@@ -490,6 +500,9 @@ export default function Estimate() {
         setUsers('');
         break;
       case 'iOS/Android App Development':
+        if (matchesSM) {
+          window.scrollTo(0, myRef.current.offsetTop + 75);
+        }
         setQuestions(softwareQuestions);
         setService(newSelected.title);
         setPlatforms([]);
@@ -500,6 +513,9 @@ export default function Estimate() {
 
         break;
       case 'Website Development':
+        if (matchesSM) {
+          window.scrollTo(0, myRef.current.offsetTop + 75);
+        }
         setQuestions(websiteQuestions);
         setService(newSelected.title);
         setPlatforms([]);
@@ -680,8 +696,18 @@ export default function Estimate() {
   const estimateDisabled = () => {
     let disabled = true;
     const emptySelection = questions
+      .filter(
+        question => question.title !== 'Which features do you expect to use?'
+      )
       .map(question => question.options.filter(option => option.selected))
       .filter(question => question.length === 0);
+
+    const featuresSelected = questions
+      .filter(
+        question => question.title === 'Which features do you expect to use?'
+      )
+      .map(question => question.options.filter(option => option.selected))
+      .filter(selections => selection.length > 0);
 
     if (questions.length === 2) {
       if (emptySelection.length === 1) {
@@ -689,11 +715,7 @@ export default function Estimate() {
       }
     } else if (questions.length === 1) {
       disabled = true;
-    } else if (
-      emptySelection.length < 3 &&
-      questions[questions.length - 1].option.filter(option => option.selected)
-        .length > 0
-    ) {
+    } else if (emptySelection.length === 1 && featuresSelected.length > 0) {
       disabled = false;
     }
     return disabled;
@@ -865,7 +887,7 @@ export default function Estimate() {
           .filter(question => question.active)
           .map((question, index) => (
             <React.Fragment key={index}>
-              <Grid item>
+              <Grid item ref={myRef}>
                 <Typography
                   align='center'
                   variant='h2'

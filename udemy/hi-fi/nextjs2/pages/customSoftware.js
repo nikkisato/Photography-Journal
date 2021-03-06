@@ -76,6 +76,7 @@ export default function CustomSoftware(props) {
       preserveAspectRatio: 'xMidYMid slice',
     },
   };
+
   return (
     <Grid container direction='column'>
       <Head>
@@ -123,7 +124,15 @@ export default function CustomSoftware(props) {
         </Hidden>
         <Grid item container direction='column' className={classes.heading}>
           <Grid item>
-            <Typography variant='h2' align={matchesMD ? 'center' : undefined}>
+            <Typography
+              variant='h2'
+              align={matchesMD ? 'center' : undefined}
+              style={{
+                lineHeight: matchesXS ? 1.1 : null,
+                marginBottom: matchesXS ? '0.5' : null,
+                fontSize: '2.25em',
+              }}
+            >
               Custom Software Development
             </Typography>
           </Grid>
@@ -308,7 +317,7 @@ export default function CustomSoftware(props) {
           direction={matchesSM ? 'column' : 'row'}
           md
         >
-          <Grid item md>
+          <Grid item md style={{ marginBottom: matchesSM ? '2em' : null }}>
             <Lottie
               options={scaleOptions}
               isStopped={true}
@@ -415,7 +424,7 @@ export default function CustomSoftware(props) {
               </Typography>
             </Grid>
           </Grid>
-          <Grid item md>
+          <Grid item md style={{ marginTop: matchesSM ? '2em' : null }}>
             <Lottie
               options={automationOptions}
               style={{ maxHeight: 290, maxWidth: 280 }}
@@ -429,7 +438,7 @@ export default function CustomSoftware(props) {
           direction={matchesSM ? 'column' : 'row'}
           md
         >
-          <Grid item md>
+          <Grid item md style={{ marginBottom: matchesSM ? '2em' : null }}>
             <Lottie
               options={uxOptions}
               isStopped={true}
